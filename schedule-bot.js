@@ -76,19 +76,14 @@ const createMessage = (scheduleObj) => {
   return str;
 }
 
-console.log(createMessage(scheduleObj));
-
 const messageToRelay = createMessage(scheduleObj);
-
-console.log(process.env.PARKER_PHONE_NUMBER);
-
 
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 const client = twilio(accountSid, authToken);
 
-// client.messages 
-//   .create({body: messageToRelay, from: '+13143505582', to: process.env.PARKER_PHONE_NUMBER})
-//   .then(message => console.log('Schedule: ', scheduleObj))
-//   .then(message => console.log('Message sent successfully // sid: ', message.sid))
-//   .catch((err) => console.log('Failure', err));            
+client.messages 
+  .create({body: messageToRelay, from: process.env.TWILIO_NUMBER, to: process.env.PARKER_PHONE_NUMBER})
+  .then(message => console.log('Schedule: ', scheduleObj))
+  .then(message => console.log('Message sent successfully!'))
+  .catch((err) => console.log('Failure', err));         
