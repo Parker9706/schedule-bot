@@ -65,7 +65,8 @@ const findAiSchedule = (scheduleData) => {
 const scheduleObj = findAiSchedule(extractExcelData);
 
 const createMessage = (scheduleObj) => {
-  const str = `Hello, Ai! 🙂 This is your schedule at MUJI Yorkdale from ${scheduleObj.date}. 
+  const str = `
+  Hello, Ai! 🙂 This is your schedule at MUJI Yorkdale from ${scheduleObj.date}. 
   Monday: ${scheduleObj.Monday}
   Tuesday: ${scheduleObj.Tuesday}
   Wednesday: ${scheduleObj.Wednesday}
@@ -86,9 +87,9 @@ client.messages
   .create({body: messageToRelay, from: process.env.TWILIO_NUMBER, to: process.env.PARKER_PHONE_NUMBER})
   .then(message => console.log('Schedule: ', scheduleObj))
   .then(message => console.log('Message sent successfully to Parker!'))
-  .catch((err) => console.log('Failure', err));        
+  .catch((err) => console.log('Failure: ', err, 'The message was not send to Parker.'));        
   
 client.messages 
   .create({body: messageToRelay, from: process.env.TWILIO_NUMBER, to: process.env.AI_PHONE_NUMBER})
   .then(message => console.log('Message sent successfully to Ai!'))
-  .catch((err) => console.log('Failure', err)); 
+  .catch((err) => console.log('Failure: ', err, 'The message was not sent to Ai.')); 
