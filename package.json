@@ -1,0 +1,25 @@
+{
+  "name": "schedule-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "schedule-bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node schedule-bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parker9706/schedule-bot.git"
+  },
+  "author": "Parker D. Hutcheson (pdhutcheson@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parker9706/schedule-bot/issues"
+  },
+  "homepage": "https://github.com/Parker9706/schedule-bot#readme",
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
+    "dotenv": "^16.0.3",
+    "twilio": "^3.83.3"
+  }
+}

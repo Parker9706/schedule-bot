@@ -1,3 +1,7 @@
+# Custom
+package-lock.json
+*.xlsx
+
 # Logs
 logs
 *.log
