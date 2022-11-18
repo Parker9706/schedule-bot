@@ -85,5 +85,10 @@ const client = twilio(accountSid, authToken);
 client.messages 
   .create({body: messageToRelay, from: process.env.TWILIO_NUMBER, to: process.env.PARKER_PHONE_NUMBER})
   .then(message => console.log('Schedule: ', scheduleObj))
-  .then(message => console.log('Message sent successfully!'))
-  .catch((err) => console.log('Failure', err));         
+  .then(message => console.log('Message sent successfully to Parker!'))
+  .catch((err) => console.log('Failure', err));        
+  
+client.messages 
+  .create({body: messageToRelay, from: process.env.TWILIO_NUMBER, to: process.env.AI_PHONE_NUMBER})
+  .then(message => console.log('Message sent successfully to Ai!'))
+  .catch((err) => console.log('Failure', err)); 
